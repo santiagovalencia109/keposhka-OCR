@@ -108,6 +108,24 @@ if uploaded_file is not None:
                     lang=LANGUAGE_NAME, 
                     config=psm_config
                 )
+
+                 
+               
+                fixSymbols = {
+                    "§": "th",
+                    "µ": "gh",
+                    "£": "sh",
+                    "¥": "ch",
+                    "¶": "Th",
+                    "¢": "Gh",
+                    "®": "Sh",
+                    "©": "Ch"
+                }
+
+              
+                for symbol, trueLetters in fixSymbols.items():
+                    text = text.replace(symbol, trueLetters)
+                
                 
                 if text.strip():
                     st.success("Read successful!")
